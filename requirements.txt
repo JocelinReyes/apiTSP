@@ -1,0 +1,4 @@
+gunicorn
+graphviz
+flask
+flask-cors
