@@ -1,14 +1,14 @@
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import random
 from tsp import simulated_annealing, evalua_ruta
 
-app = Flask(__name__, static_folder='frontend', static_url_path='')
+app = Flask(__name__)
 CORS(app)
 
 @app.route("/")
 def index():
-    return send_from_directory(app.static_folder, "index.html")
+    return render_template("index.html")  # busca en /templates/index.html
 
 @app.route("/resolver-tsp", methods=["POST"])
 def resolver_tsp():
